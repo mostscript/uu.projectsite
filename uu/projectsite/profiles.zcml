@@ -1,0 +1,16 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:cmf="http://namespaces.zope.org/cmf"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  i18n_domain="uu.projectsite">
+    
+    <!-- register extension profiles for add-on --> 
+    <genericsetup:registerProfile
+        name="default"
+        title="uu.projectsite: generic integation policy product for Teamspace"
+        directory="profiles/default"
+        description="Integration of Plone for QI extranet use."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />  
+
+</configure>
