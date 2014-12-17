@@ -1,0 +1,10 @@
+<object name="portal_skins">
+  <object
+    name="uu_projectsite"
+    meta_type="Filesystem Directory View"
+    directory="uu.projectsite:skins/uu_projectsite"
+    />
+  <skin-path name="Sunburst Theme">
+    <layer name="uu_projectsite" insert-after="custom" />
+  </skin-path>
+</object>
