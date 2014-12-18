@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<object name="collective.teamwork.project"
+        meta_type="Dexterity FTI"
+        i18n:domain="collective.teamwork"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
+  <!-- things allowed in a project but are not implicitly addable elsewhere -->
+  <property name="allowed_content_types" purge="False">
+    <element value="collective.teamwork.team" />
+    <element value="uu.formlibrary.library" />
+    <element value="uu.formlibrary.measurelibrary" />
+  </property>
+
+</object>
+
