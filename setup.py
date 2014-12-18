@@ -36,6 +36,7 @@ setup(
         'five.pt',
         'wildcard.media',
         'collective.cover',
+        'collective.inviting',
         # -*- Extra requirements: -*-
     ],
     entry_points="""
