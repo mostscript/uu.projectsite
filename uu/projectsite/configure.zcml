@@ -12,6 +12,11 @@
 
   <five:registerPackage package="." initialize=".zope2.initialize" />
 
+  <!-- template overrides -->
+  <include package="z3c.jbot" file="meta.zcml" />
+
+  <browser:jbot directory="template/global-overrides" />
+
   <!-- include Generic Setup extension profiles -->
   <include file="profiles.zcml" />
 
