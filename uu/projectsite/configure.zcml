@@ -22,4 +22,11 @@
     handler=".handlers.project_afteradd"
     />
 
+  <browser:resource
+    name="projectsite.css"
+    file="resources/projectsite.css"
+    layer=".interfaces.IProjectSiteProductLayer"
+    permission="zope2.Public"
+    />
+
 </configure>
