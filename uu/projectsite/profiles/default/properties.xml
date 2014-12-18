@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<site>
+  <property name="title">Quality Improvement Projects</property>
+  <property name="description">Project and team workspaces for quality improvement.</property>
+  <property name="email_from_address"
+     type="string">webmaster@upiq.org</property>
+  <property name="email_from_name"
+     type="string">QI Workspaces Administrator</property>
+  <property name="default_page" type="string">front-page</property>
+</site>
