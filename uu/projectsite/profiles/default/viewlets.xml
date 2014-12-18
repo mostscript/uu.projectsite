@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <object>
+  <!-- hide stock global/top nav -->
+  <hidden manager="plone.portalheader" skinname="Plone Default">
+    <viewlet name="plone.global_sections" />
+  </hidden>
   <!-- hide stock colophon, footer viewlets -->
   <hidden manager="plone.portalfooter" skinname="Plone Default">
     <viewlet name="plone.footer" />
