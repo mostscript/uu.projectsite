@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<object>
+  <!-- hide stock colophon, footer viewlets -->
+  <hidden manager="plone.portalfooter" skinname="Plone Default">
+    <viewlet name="plone.footer" />
+    <viewlet name="plone.colophon" />
+  </hidden>
+</object>
