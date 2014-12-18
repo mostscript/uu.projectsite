@@ -10,6 +10,10 @@
       <role name="Reviewer"/>
       <role name="Owner"/>
     </permission>
+    <permission name="Allow sendto" acquire="True">
+      <role name="Manager" />
+      <role name="Site Administrator" />
+    </permission>
   </permissions>
 </rolemap>
 
