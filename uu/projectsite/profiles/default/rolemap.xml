@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="FormEntry" />
+  </roles>
+  <permissions>
+    <permission name="Enter Data" acquire="True">
+      <role name="FormEntry"/>
+      <role name="Manager"/>
+      <role name="Reviewer"/>
+      <role name="Owner"/>
+    </permission>
+  </permissions>
+</rolemap>
+
