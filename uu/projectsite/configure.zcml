@@ -15,4 +15,11 @@
   <!-- include Generic Setup extension profiles -->
   <include file="profiles.zcml" />
 
+  <!-- subscribers -->
+  <subscriber
+    for="collective.teamwork.interfaces.IProjectContext
+         zope.lifecycleevent.interfaces.IObjectAddedEvent"
+    handler=".handlers.project_afteradd"
+    />
+
 </configure>
