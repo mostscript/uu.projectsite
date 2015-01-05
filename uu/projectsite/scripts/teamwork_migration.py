@@ -33,12 +33,10 @@ def install_step(site, profile, stepname):
     print r.get('messages').get(stepname)
 
 
-def install_teamwork_addon(site, name='collective.teamwork'):
-    # install the c.teamwork add-on if not already installed:
+def install_teamwork_addon(site, name='uu.projectsite'):
+    # install c.teamwork and uu.projectsite if not already installed:
     if not product_installed(site, name):
         site.portal_quickinstaller.installProduct(name)
-    # run the Types tool step of the "Team" profile of c.teamwork:
-    install_step(site, 'profile-%s:team' % name, stepname='typeinfo')
 
 
 def update_workflow_history(content):
