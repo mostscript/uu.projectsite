@@ -7,6 +7,14 @@ from zope.component.hooks import setSite
 
 BASEPATH = '/VirtualHostBase/https/teamspace1.upiq.org'
 
+POLICYMAP = {
+    'qiteamspace': 'upiqsite.projects',
+    'cnhnqi': 'upiqsite.cnhnqi',
+    'opip': 'upiqsite.opip',
+    'maine': 'upiqsite.maine',
+    }
+
+
 _installed = lambda site: site.portal_quickinstaller.isProductInstalled
 product_installed = lambda site, name: _installed(site)(name)
 
@@ -213,7 +221,10 @@ def migrate(site):
     uninstall_old_products(site)
     last = stamp(start, last)
     print '\t-- Installing collective.teamwork'
-    install_teamwork_addon(site)
+    install_teamwork_addon(
+        site,
+        name=POLICYMAP.get(site.getId(), 'uu.projectsite'),
+        )
     last = stamp(start, last)
     print '\t-- Updating content state (portal_type and workflow_history)'
     workspaces = update_content_state(site)
