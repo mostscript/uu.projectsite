@@ -18,7 +18,7 @@ ROLE_KEYS = ('viewers', 'forms', 'contributors', 'managers')
 
 
 def register():
-    add_workgroup_type('forms', CONFIG.get('forms'))
+    add_workgroup_type('forms', **CONFIG.get('forms'))
     config = queryUtility(IWorkgroupTypes)
     config.order = ROLE_KEYS
 
