@@ -210,3 +210,17 @@ dl.portletNavigationTree dd.portletItem ul.navTree li.navTreeCurrentNode a.navTr
     border:0.1em solid #242;
 }
 
+/* site specific styles for core/add-on stuff: */
+
+#content a.video {
+  max-width:640px;
+  max-height:480px;
+}
+
+#add-field {
+    margin-top:4em;
+}
+
+#add-fieldset input {
+    display:none !important;
+}
