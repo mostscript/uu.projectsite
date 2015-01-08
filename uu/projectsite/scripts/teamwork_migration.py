@@ -42,9 +42,12 @@ def install_step(site, profile, stepname):
 
 
 def install_teamwork_addon(site, name='uu.projectsite'):
-    # install c.teamwork and uu.projectsite if not already installed:
-    if not product_installed(site, name):
-        site.portal_quickinstaller.installProduct(name)
+    installer = site.portal_quickinstaller
+    if product_installed(site, name):
+        # uninstall legacy site policy of same package name before reinstall
+        installer.uninstallProducts([name])
+    # install c.teamwork and uu.projectsite, potentially via site policy:
+    installer.installProduct(name)
 
 
 def update_workflow_history(content):
@@ -194,7 +197,7 @@ def stamp(start, last):
     now = time.time()
     since_start = now - start
     since_last = now - last
-    print '\t\t Step completed: %.0f seconds (%.0f since start)' % (
+    print '\t\t Step completed: %.1f seconds (%.1f since start)' % (
         since_last,
         since_start,
         )
