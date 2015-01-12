@@ -25,16 +25,16 @@ from collective.teamwork.user.interfaces import IWorkspaceRoster
 _u = lambda v: v.decode('utf-8') if isinstance(v, str) else unicode(v)
 _utf8 = lambda v: v.encode('utf-8') if isinstance(v, unicode) else v
 
+
 _mkvocab = lambda seq: SimpleVocabulary([SimpleTerm(t) for t in seq])
 
 
-# site order matters, first breaks ties on same project name!
-SITES = (
-    'cnhnqi',
-    'qiteamspace',
-    'opip',
-    'maine',
-    )
+_installed = lambda site: site.portal_quickinstaller.isProductInstalled
+product_installed = lambda site, name: _installed(site)(name)
+
+
+PKGNAME = 'uu.projectsite'
+
 
 # ignored users are typically site-testing users of project managers
 # who have other primary userid/email identification we care about
@@ -186,7 +186,7 @@ def output_value(k, v):
     return _utf8(v)
 
 
-def report_main(site, datestamp):
+def report_main(site, datestamp, perproject=False):
     """
     Given site and datestamp for snapshot, append report result to
     file named project_users.csv with column format:
@@ -231,21 +231,6 @@ def report_main(site, datestamp):
         site_out.write('%s\n' % ','.join(columns))  # new file, ergo headings
     for project in projects:
         sitesnap.project_count += 1
-        proj_filename = os.path.join(DIRNAME, '%s-%s.csv' % (
-            site.getId(),
-            project.getId(),
-            ))
-        if os.path.exists(proj_filename):
-            out = open(proj_filename, 'r')
-            data = out.readlines()  # existing data in file
-            out.close()
-            if any([(str(datestamp) in line) for line in data]):
-                continue  # don't duplicate entry for date if already in file
-            out = open(proj_filename, 'a')  # append to EOF
-        else:
-            out = open(proj_filename, 'w')  # will create
-            out.write('%s\n' % ','.join(columns))  # new file, ergo headings
-        writer = csv.DictWriter(out, columns, extrasaction='ignore')
         roster = IWorkspaceRoster(project)
         snapshot = ProjectSnapshot(
             name=project.getId(),
@@ -272,12 +257,28 @@ def report_main(site, datestamp):
         sitesnap.form_users = sitesnap.form_users.union(snapshot.form_users)
         snapshot.team_count = len(all_workspaces(project)) - 1
         sitesnap.team_count += snapshot.team_count
-        # write row to CSV from snapshot, convert unicode to utf-8 as needed
-        writer.writerow(
-            dict([(k, output_value(k, v))
-                  for k, v in snapshot.__dict__.items()]))
-        out.close()
-    
+        if perproject:
+            proj_filename = os.path.join(DIRNAME, '%s-%s.csv' % (
+                site.getId(),
+                project.getId(),
+                ))
+            if os.path.exists(proj_filename):
+                out = open(proj_filename, 'r')
+                data = out.readlines()  # existing data in file
+                out.close()
+                if any([(str(datestamp) in line) for line in data]):
+                    continue  # don't duplicate entry for date already in file
+                out = open(proj_filename, 'a')  # append to EOF
+            else:
+                out = open(proj_filename, 'w')  # will create
+                out.write('%s\n' % ','.join(columns))  # new file -> headings
+            writer = csv.DictWriter(out, columns, extrasaction='ignore')
+            # write row to CSV from snapshot, convert u'' to utf-8 as needed
+            writer.writerow(
+                dict([(k, output_value(k, v))
+                      for k, v in snapshot.__dict__.items()]))
+            out.close()
+
     # now normalize site-wide users for greatest role... if a user is manager
     # in project A, do not include them in form users just because they have
     # form user role in project B:
@@ -292,8 +293,9 @@ def report_main(site, datestamp):
 
 
 def main(app, datestamp=None, username='admin'):
-    for sitename in SITES:
-        site = app.get(sitename)
+    for site in app.objectValues('Plone Site'):
+        if not product_installed(site, PKGNAME):
+            continue
         setSite(site)
         # user spoofins, try site user folder and instance/app/root user folder
         contexts = (site, app)
