@@ -1,0 +1,12 @@
+<import-steps>
+  <import-step id="uu.projectsite-safehtml"
+    handler="uu.projectsite.setuphandlers.whitelist_safe_styles"
+    title="uu.projectsite safe_html whitelisting styles" version="1.0">
+    <dependency step="plone-final"/>
+  </import-step>
+  <import-step id="uu.projectsite-formats"
+    handler="uu.projectsite.setuphandlers.add_tinymce_formats"
+    title="uu.projectsite add formats to TinyMCE" version="1.0">
+    <dependency step="plone-final"/>
+  </import-step>
+</import-steps>
