@@ -224,3 +224,19 @@ dl.portletNavigationTree dd.portletItem ul.navTree li.navTreeCurrentNode a.navTr
 #add-fieldset input {
     display:none !important;
 }
+
+/* forms / plone.schemaeditor style tweaks */
+
+div.fieldPreview .fieldLabel {
+  max-width:45em;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+div.fieldPreview {
+  max-width:55em;
+}
+
+div.fieldPreview select {
+  max-width:100%;
+}
+
