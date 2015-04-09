@@ -46,6 +46,7 @@ USER_IGNORE = (
     'homa.rehmani',
     # OPIP:
     'ross8305',
+    'davidrossmph',
     'ktconner3',
     # CNHNQI:
     'tamaranjohn',
