@@ -15,7 +15,7 @@ ALLOWED_STYLES = [
 
 
 # formats JSON for TinyMCE:
-FORMATS = """
+FORMATS = u"""
 {
     "underline" : {
         "inline" : "span",
