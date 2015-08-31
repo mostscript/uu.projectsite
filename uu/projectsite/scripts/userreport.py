@@ -52,12 +52,15 @@ USER_IGNORE = (
     'tamaranjohn',
     # MAINE:
     'mainetesting@teamspace.mainequalitycounts.org',
+    # TNAAP:
+    'becky810',
+    'darcy.knowles'
     )
 
 
 upiq_user = lambda u: 'hsc.utah.edu' in str(u) or 'upiq.org' in str(u)
 _ignore_user = lambda u: any(map(lambda substr: substr in u, USER_IGNORE))
-ignore_user = lambda u: upiq_user(u) or _ignore_user(u)
+ignore_user = lambda u: upiq_user(u) or _ignore_user(u.lower())
 
 
 #DIRNAME = 'usage_data_folder'
