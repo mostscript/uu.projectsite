@@ -258,3 +258,225 @@ div.fieldPreview select {
   max-width:100%;
 }
 
+/* === Mid-2015 style improvements === */
+
+
+#portal-top #portal-header {
+  border-bottom:none;
+}
+
+#content {
+  padding:0 0.3em;
+  margin-top:-0.7em;
+}
+
+#viewlet-above-content-body, #viewlet-below-content-title {
+  padding-left:0.7em;
+}
+
+#viewlet-above-content {
+  background-color:SlateGray !important;
+  border:none !important;
+  border-left:0.5em solid #cce !important;
+  margin-right:1px !important;
+}
+
+#viewlet-above-content div a {
+  color:blanchedalmond;
+}
+
+#viewlet-above-content div a:hover {
+  color:skyblue;
+  text-decoration: underline;
+}
+
+#viewlet-above-content #breadcrumbs-current,
+#viewlet-above-content #breadcrumbs-you-are-here {
+  color:white;
+}
+
+#viewlet-above-content #breadcrumbs-you-are-here {
+  font-weight:normal;
+  font-size:85%;
+  color:#ccc;
+  margin-right:0.5em;
+}
+
+#viewlet-above-content .breadcrumbSeparator {
+  color:black;
+}
+
+#portal-column-one .navTree {
+  margin-top:0.6em;
+}
+
+#portal-column-one .navTree.navTreeLevel0 {
+  margin-top:0;
+}
+
+#portal-column-one dl.portletNavigationTree dd.portletItem ul.navTree.navTreeLevel0 li.navTreeTopNode {
+  margin-left:-0.1em;
+}
+
+#portal-column-one dl.portletNavigationTree dd.portletItem ul.navTree.navTreeLevel0 li.navTreeTopNode.navTreeCurrentNode {
+  margin-left:-0.2em;
+}
+
+#portal-column-one .navTree.navTreeLevel1 {
+  margin-left:-1em;
+  margin-bottom:-0.6em;
+  border-left:0.5em solid #e9e9e9;
+}
+
+#portal-column-one .navTree.navTreeLevel1 .navTreeItem {
+  margin-left:-0.4em;
+  border-bottom:0.4em solid white;
+  border-top:0.3em solid white;
+}
+
+#portal-column-one .navTree.navTreeLevel1 > li.navTreeItem {
+  margin-left:0.25em;
+}
+
+#portal-column-one .navTree.navTreeLevel1 > li.navTreeItem .navTreeItem {
+  margin-left:-0.25em;
+}
+
+#portal-column-one .navTree.navTreeLevel1 li.navTreeItem .navTreeItem.navTreeCurrentNode {
+  margin-left:-0.9em;
+  margin-bottom:0.65em;
+}
+
+#portal-column-one .navTree.navTreeLevel1 > .navTreeItem.navTreeCurrentNode {
+  margin-left:-0.4em !important;
+}
+
+#portal-column-one .navTree.navTreeLevel1 .navTreeItem a {
+  border-left-width:0.5em;
+}
+
+#portal-column-one .navTree .navTreeItem {
+  border-bottom:0.2em solid white;
+}
+
+#portal-column-one .navTree .navTreeItem a {
+  margin-right:-1em;
+  padding-left:23px !Important;
+}
+
+#portal-column-one .navTree .navTreeItem a img {
+  margin-left:-18px;
+}
+
+dl.portletNavigationTree dd.portletItem ul.navTree li {
+  border:none;
+}
+
+dl.portletNavigationTree dd.portletItem ul.navTree li.navTreeCurrentNode {
+  margin-left:-0.2em;
+  border-left:0.5em solid SteelBlue;
+  border-bottom:none !important;
+  border-top:none !important;
+  padding-left:1.1em;
+}
+
+dl.portletNavigationTree dd.portletItem ul.navTree li.navTreeCurrentNode > a {
+  margin-top:-0.2em !important;
+
+}
+
+#portal-column-one .portletNavigationTree {
+  margin-top:0em;
+}
+
+/* sunburst sprite position adjustment */
+.icons-on .navTreeItem .contenttype-document {
+    background: no-repeat transparent 4px 4px url(contenttypes-sprite.png);
+}
+.icons-on .navTreeItem .contenttype-event {
+    background: no-repeat transparent 4px -212px url(contenttypes-sprite.png);
+}
+
+.icons-on .navTreeItem .contenttype-folder {
+    background: no-repeat transparent 4px -644px url(contenttypes-sprite.png);
+}
+
+.icons-on .navTreeItem .contenttype-link {
+    background: no-repeat transparent 4px -1076px url(contenttypes-sprite.png);
+}
+
+.icons-on .navTreeItem .contenttype-news-item {
+    background: no-repeat transparent 4px -1292px url(contenttypes-sprite.png);
+}
+
+.icons-on .navTreeItem .contenttype-plone-site {
+    background: no-repeat transparent 4px -1508px url(contenttypes-sprite.png);
+}
+
+.icons-on .navTreeItem .contenttype-collection {
+    background: no-repeat transparent 4px -1724px url(contenttypes-sprite.png);
+}
+
+.icons-on .navTreeItem .contenttype-topic {
+    background: no-repeat transparent 4px -1724px url(contenttypes-sprite.png);
+}
+
+/* color coded left-border, based on access */
+#portal-column-one .navTree .navTreeItem a {
+  border-left:0.5em solid #cccccc;
+  padding:0 0.4em;
+  margin-left:-1.2em;
+  margin-top:-0.5em;
+  margin-bottom:-0.3em;
+}
+
+#portal-column-one .navTree .navTreeItem .state-visible {
+  border-left:0.5em solid #ccffcc;
+}
+
+#portal-column-one .navTree .navTreeItem .state-published {
+  border-left:0.5em solid #ccccff;
+}
+
+#portal-column-one .navTree .navTreeItem .state-restricted,
+#portal-column-one .navTree .navTreeItem .state-private
+{
+  border-left:0.5em solid #ffcccc;
+}
+
+#portal-column-one .navTree .navTreeItem .state-restricted span,
+#portal-column-one .navTree .navTreeItem .state-private span {
+  color:#888 !important;
+}
+
+#portal-column-one .navTree .navTreeItem .contenttype-collective-teamwork-team.state-visible,
+#portal-column-one .navTree .navTreeItem .contenttype-collective-teamwork-workspace.state-visible {
+  border-left:0.5em solid #eeccaa;
+}
+
+#portal-column-one .portletNavigationTree .portletItem .navTreeItem a,
+#portal-column-one .portletNavigationTree .portletItem .navTreeItem a span {
+  color:black;
+  font-size:100%;
+  font-family:Arial Narrow, Arial;
+}
+
+#portal-column-one .portletNavigationTree .portletItem .navTreeItem a span {
+  padding-left:0.2em;
+}
+#portal-column-one dl.portletNavigationTree dd.portletItem ul.navTree li.navTreeCurrentNode a.navTreeCurrentItem,
+#portal-column-one dl.portletNavigationTree dd.portletItem ul.navTree li.navTreeTopNode a {
+  font-size:94%;
+  font-weight:bold;
+  min-height:2.35em;
+  margin:-0.3em -1.2em;
+}
+
+#portal-column-one dl.portletNavigationTree dd.portletItem ul.navTree li.navTreeCurrentNode a.navTreeCurrentItem {
+  background-color:LightSteelBlue;
+  border:none;
+}
+#portal-column-one dl.portletNavigationTree dd.portletItem ul.navTree .navTreeItem a img {
+  padding-right:2px;
+}
+
