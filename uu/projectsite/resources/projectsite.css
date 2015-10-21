@@ -368,6 +368,10 @@ div.fieldPreview select {
   margin-left:-18px;
 }
 
+dd.portlet dd.portletItem {
+  overflow-x:hidden;
+}
+
 dl.portletNavigationTree dd.portletItem ul.navTree li {
   border:none;
 }
