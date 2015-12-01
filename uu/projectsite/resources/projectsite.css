@@ -502,3 +502,52 @@ dl.portletNavigationTree dd.portletItem ul.navTree li.navTreeCurrentNode > a {
 body.mce-content-body {
   overflow-y:scroll !important;
 }
+
+/* calendar styles for fullcalendar */
+
+.fc-event-inner {
+  padding:0.3em !important;
+  font-size:93%;
+}
+
+a.fc-event {
+  color:black !important;
+}
+
+a.fc-event:hover .fc-event-time,
+a.fc-event:hover .fc-event-title {
+  color:#35d !important;
+  font-weight: bold;
+  font-size:110%;
+}
+
+a.fc-event:hover .fc-event-title {
+  text-decoration:underline;
+}
+
+.fc-first .ui-widget-header {
+  font-size:90%;
+}
+
+#calendar .fc-header .ui-state-default {
+  background: #bcc;
+  background: linear-gradient(to bottom, #bbb 0%,#bcc 50%,#cdd 51%,#eee 100%);
+  color:#357 !important;
+  font-size:90%;
+}
+
+#calendar .fc-header .ui-state-active {
+  background: #bcc;
+  background: linear-gradient(to top, #bbb 0%,#bcc 50%,#cdd 51%,#eee 100%);
+  color:#357 !important;
+  font-weight:bold;
+}
+
+#calendar .fc-event {
+  background:linear-gradient(to bottom, #9bb 0%,#acc 50%,#cdf 51%,#efe 100%);
+}
+
+#calendar .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  background: #fafae0;
+}
+
