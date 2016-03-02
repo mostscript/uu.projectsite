@@ -34,4 +34,11 @@
     permission="zope2.Public"
     />
 
+  <browser:resource
+    name="checkbrowser.js"
+    file="resources/checkbrowser.js"
+    layer=".interfaces.IProjectSiteProductLayer"
+    permission="zope2.Public"
+    />
+
 </configure>

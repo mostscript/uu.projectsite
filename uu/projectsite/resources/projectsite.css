@@ -551,3 +551,47 @@ a.fc-event:hover .fc-event-title {
   background: #fafae0;
 }
 
+/* browser warning styles */
+div.alertbox {
+  background-color:#ffb !important;
+  padding:1.3em;
+  color:darkgray;
+  font-weight:normal;
+  margin-bottom:1em;
+}
+
+div.alertbox h3 {
+  color:#900;
+}
+
+div.alertbox h3:before {
+  font-size:200%;
+  content:"⚠ ";
+}
+
+div.alertbox h3.deprecated:before {
+  content:"⌛ ";
+  font-family: Lucida Sans Unicode;
+}
+
+div.alertbox p.detected {
+  margin-left:1em;
+  font-size: 85%;
+  margin-bottom:0.7em;
+}
+
+div.alertbox ul {
+  list-style:square;
+  margin-bottom:1em;
+}
+
+div.alertbox li {
+  display:list-item;
+  font-size:85%;
+  color:gray;
+  margin-left:2em;
+}
+
+div.alertbox .message-wrap {
+  color:navy;
+}
