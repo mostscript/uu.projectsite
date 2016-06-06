@@ -224,14 +224,15 @@ var checkbrowser = (function (ns, $) {
       type: UNSUPPORTED
     },
     {
-      title: 'TeamSpace will discontinue support of versions 9.0, 10.0 of ' +
-             'Internet Explorer on May 15, 2016.',
-      message: DISPLAY_DEPRECATED + DISPLAY_SUPPORTED,
+      title: 'TeamSpace discontinued support of versions 9.0, 10.0 of ' +
+             'Internet Explorer on May 15, 2016. Your browser may be ' +
+             'unable to connect properly on/after June 15, 2016. ',
+      message: DISPLAY_UNSUPPORTED + DISPLAY_SUPPORTED,
       matching: [
         ns.patterns.MSIE9,
         ns.patterns.MSIE10
       ],
-      type: DEPRECATED,
+      type: UNSUPPORTED,
       preconditions: [
         ns.notAlreadySeen,
         ns.loggedIn
