@@ -246,7 +246,6 @@ def report_main(site, datestamp, perproject=False):
         snapshot.all_users = set(filtered_users(roster))
         sitesnap.all_users = sitesnap.all_users.union(snapshot.all_users)
         snapshot.other_users = set(filtered_users(other_users(project)))
-        sitesnap.other_users = sitesnap.other_users.union(snapshot.other_users)
         snapshot.managers = set(
             filtered_users(
                 roster.groups['managers'].keys()
@@ -287,7 +286,7 @@ def report_main(site, datestamp, perproject=False):
     # in project A, do not include them in form users just because they have
     # form user role in project B:
     sitesnap.form_users = sitesnap.form_users - sitesnap.managers
-    sitesnap.other_users = (sitesnap.other_users - sitesnap.managers) - (
+    sitesnap.other_users = (sitesnap.all_users - sitesnap.managers) - (
         sitesnap.form_users)
     
     site_writer = csv.DictWriter(site_out, columns, extrasaction='ignore')
