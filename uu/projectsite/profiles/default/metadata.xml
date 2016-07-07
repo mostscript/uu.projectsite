@@ -6,6 +6,7 @@
     <dependency>profile-uu.eventintegration:default</dependency>
     <dependency>profile-uu.formlibrary:default</dependency>
     <dependency>profile-uu.chart:default</dependency>
+    <dependency>profile-plone.app.widgets:default</dependency>
     <dependency>profile-Products.CMFPlacefulWorkflow:CMFPlacefulWorkflow</dependency>
     <dependency>profile-plone.app.iterate:plone.app.iterate</dependency>
     <dependency>profile-wildcard.media:default</dependency>
