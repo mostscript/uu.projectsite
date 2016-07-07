@@ -9,7 +9,6 @@
     <dependency>profile-Products.CMFPlacefulWorkflow:CMFPlacefulWorkflow</dependency>
     <dependency>profile-plone.app.iterate:plone.app.iterate</dependency>
     <dependency>profile-wildcard.media:default</dependency>
-    <dependency>profile-collective.cover:default</dependency>
     <dependency>profile-collective.inviting:default</dependency>
     <dependency>profile-collective.emaillogin4:default</dependency>
     <dependency>profile-plone.app.caching:default</dependency>
