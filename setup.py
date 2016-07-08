@@ -37,7 +37,6 @@ setup(
         'wildcard.media',
         'collective.cover',
         'collective.inviting',
-        'plone.app.widgets',
         # -*- Extra requirements: -*-
     ],
     entry_points="""
