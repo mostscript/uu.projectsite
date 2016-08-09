@@ -288,6 +288,10 @@ def report_main(site, datestamp, perproject=False):
     sitesnap.form_users = sitesnap.form_users - sitesnap.managers
     sitesnap.other_users = (sitesnap.all_users - sitesnap.managers) - (
         sitesnap.form_users)
+    # final reconciliation, do not include any users in specific lists
+    # if not in all_users group:
+    sitesnap.form_users = sitesnap.form_users.intersection(sitesnap.all_users)
+    sitesnap.managers = sitesnap.managers.intersection(sitesnap.all_users)
     
     site_writer = csv.DictWriter(site_out, columns, extrasaction='ignore')
     site_writer.writerow(
