@@ -39,3 +39,14 @@ def add_tinymce_formats(context):
     tool = site.portal_tinymce
     tool.formats = FORMATS
 
+
+def reinstall_widgets_jsregistry_step(context):
+    site = context.getSite()
+    gs = site.portal_setup
+    steps = [
+            ['profile-plone.app.widgets:default', 'cssregistry'],   # CSS reg
+            ['profile-plone.app.widgets:default', 'jsregistry'],    # JS reg
+        ]
+    for profile, step in steps:
+        gs.runImportStepFromProfile(profile, step)
+
