@@ -5,11 +5,13 @@
 
   var head = document.getElementsByTagName('head')[0],
       existing = head.getElementsByTagName('base'),
-      base = document.createElement('base');
+      base = document.createElement('base'),
+      loc = window.location,
+      href = loc.href.replace(loc.search, '').replace(loc.hash, '');
   if (existing.length) {
     head.removeChild(existing[0]);
   }
-  base.setAttribute('href', window.location.href);
+  base.setAttribute('href', href);
   if (head.firstChild) {
     head.insertBefore(base, head.firstChild);
   } else {
