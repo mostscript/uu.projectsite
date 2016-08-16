@@ -33,6 +33,8 @@ _installed = lambda site: site.portal_quickinstaller.isProductInstalled
 product_installed = lambda site, name: _installed(site)(name)
 
 
+DETAIL_DEBUG = False
+
 PKGNAME = 'uu.projectsite'
 
 
@@ -197,6 +199,9 @@ def report_main(site, datestamp, perproject=False):
     
     month, date, project_name, #users, #managers, #teams, #forms.
     """
+    if DETAIL_DEBUG:
+        print '###### SITE REPORT DETAIL: %s ######' % site.getId()
+
     catalog = getToolByName(site, 'portal_catalog')
     r = catalog.unrestrictedSearchResults(
         {'object_provides': IProjectContext.__identifier__}
@@ -260,6 +265,20 @@ def report_main(site, datestamp, perproject=False):
         sitesnap.form_users = sitesnap.form_users.union(snapshot.form_users)
         snapshot.team_count = len(all_workspaces(project)) - 1
         sitesnap.team_count += snapshot.team_count
+        if DETAIL_DEBUG:
+            print '== PROJECT: %s ==' % project.getId()
+            print '  Team workspace count: %s' % snapshot.team_count 
+            print '  Total users (all categories): %s' % len(snapshot.all_users)
+            print '   Managers of project: %s' % len(snapshot.managers)
+            for email in snapshot.managers:
+                print '\t   - %s' % email
+            print '   Form entry users, incl. team managers who are not project managers: %s' % len(snapshot.form_users)
+            for email in snapshot.form_users:
+                print '\t   - %s' % email
+            print '   Other users (not managers, not form entry): %s' % len(snapshot.other_users)
+            for email in snapshot.other_users:
+                print '\t   - %s' % email
+        
         if perproject:
             proj_filename = os.path.join(DIRNAME, '%s-%s.csv' % (
                 site.getId(),
@@ -293,6 +312,19 @@ def report_main(site, datestamp, perproject=False):
     sitesnap.form_users = sitesnap.form_users.intersection(sitesnap.all_users)
     sitesnap.managers = sitesnap.managers.intersection(sitesnap.all_users)
     
+    if DETAIL_DEBUG:
+        print '== SITE: %s ==' % site.getId()
+        print '  Total UNIQUE users (all categories): %s' % len(sitesnap.all_users)
+        print '   UNIQUE managers of project: %s' % len(sitesnap.managers)
+        for email in sitesnap.managers:
+            print '\t   - %s' % email
+        print '   UNIQUE form entry users, incl. team managers who are not project managers: %s' % len(sitesnap.form_users)
+        for email in sitesnap.form_users:
+            print '\t   - %s' % email
+        print '   UNIQUE other users (not managers, not form entry): %s' % len(sitesnap.other_users)
+        for email in sitesnap.other_users:
+            print '\t   - %s' % email
+
     site_writer = csv.DictWriter(site_out, columns, extrasaction='ignore')
     site_writer.writerow(
         dict([(k, output_value(k, v)) for k, v in sitesnap.__dict__.items()]))
