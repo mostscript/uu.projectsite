@@ -595,3 +595,9 @@ div.alertbox li {
 div.alertbox .message-wrap {
   color:navy;
 }
+
+/* plone.app.widgets fixes */
+
+span.option {
+  display:block;
+}
