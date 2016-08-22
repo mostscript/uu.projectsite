@@ -10,7 +10,7 @@
       oldHref = (existing.length) ? existing[0].getAttribute('href') || '' : '',
       slash = oldHref.slice(-1) === '/',
       href = loc.href.replace(loc.search, '').replace(loc.hash, ''),
-      excludedViews = ['view'];
+      excludedViews = ['view', '@@'];
   if (existing.length) {
     head.removeChild(existing[0]);
     if (slash) {
