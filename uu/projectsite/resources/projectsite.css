@@ -1,4 +1,9 @@
 /* misc */
+
+#portal-logo {
+  margin: 0.4em 0;
+}
+
 #content a.video {
   max-width:640px;
   max-height:480px;
