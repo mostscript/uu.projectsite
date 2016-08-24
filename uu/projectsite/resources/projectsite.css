@@ -600,3 +600,7 @@ body.mce-content-body {
   overflow-y:scroll !important;
 }
 
+/* hide broken tree link on related items widget */
+a.pattern-relateditems-tree-select {
+  display: none;
+}
