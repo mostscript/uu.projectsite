@@ -1,5 +1,5 @@
 // rewrite <base> tag in Plone 4 DOM to match window.location.href
-
+/*
 (function () {
   "use strict";
 
@@ -28,4 +28,4 @@
     head.appendChild(base);
   }
 }());
-
+*/
