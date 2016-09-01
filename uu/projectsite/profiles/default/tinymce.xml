@@ -10,7 +10,7 @@
   <toolbar_cut value="False"/>
   <toolbar_definitionlist value="True"/>
   <customtoolbarbuttons value=""/>
-  <toolbar_paste value="True"/>
+  <toolbar_paste value="False"/>
   <toolbar_justifycenter value="True"/>
   <toolbar_inserttime value="False"/>
   <toolbar_tablecontrols value="True"/>
