@@ -604,3 +604,8 @@ body.mce-content-body {
 a.pattern-relateditems-tree-select {
   display: none;
 }
+
+/* slightly more compact padding on TinyMCE 4 (mockup) buttons */
+.mce-tinymce .mce-toolbar .mce-btn button {
+  padding: 4px;
+}
