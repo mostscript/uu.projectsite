@@ -9,4 +9,8 @@
     title="uu.projectsite add formats to TinyMCE" version="1.0">
     <dependency step="plone-final"/>
   </import-step>
+  <import-step id="uu.projectsite-widgetsjsorder"
+    handler="uu.projectsite.setuphandlers.reinstall_widgets_jsregistry_step"
+    title="uu.projectsite widgets js registry order fix" version="1.0">
+  </import-step>
 </import-steps>

@@ -41,4 +41,21 @@
     permission="zope2.Public"
     />
 
+  <browser:resource
+    name="fixbase.js"
+    file="resources/fixbase.js"
+    layer=".interfaces.IProjectSiteProductLayer"
+    permission="zope2.Public"
+    />
+
+  <!-- viewlet to inject fixbase -->
+  <browser:viewlet
+    name="uu.projectsite.fixbase"
+    description="Injected JS rewrites base tag"
+    manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+    class=".viewlets.BaseJSRewriteViewlet"
+    layer=".interfaces.IProjectSiteProductLayer"
+    permission="zope2.View"
+    />
+
 </configure>

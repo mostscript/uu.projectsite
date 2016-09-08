@@ -1,4 +1,9 @@
 /* misc */
+
+#portal-logo {
+  margin: 0.4em 0;
+}
+
 #content a.video {
   max-width:640px;
   max-height:480px;
@@ -484,25 +489,6 @@ dl.portletNavigationTree dd.portletItem ul.navTree li.navTreeCurrentNode > a {
   padding-right:2px;
 }
 
-/* plone.app.widgets customizations (may be plone 4.x specific): */
-
-/* more room between > icon and scrollbars in relateditems widget */
-.pattern-relateditems-result .pattern-relateditems-buttons a {
-    margin-right: 0.6em;
-}
-
-.plone-modal-dialog {
-  /* small fix: modal dialog for upload/related (via tinymce) requires more space than shipped OOTB in plone.app.widgets */
-  width: 760px;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  left: 0 !important;
-}
-
-body.mce-content-body {
-  overflow-y:scroll !important;
-}
-
 /* calendar styles for fullcalendar */
 
 .fc-event-inner {
@@ -594,4 +580,32 @@ div.alertbox li {
 
 div.alertbox .message-wrap {
   color:navy;
+}
+
+/* plone.app.widgets fixes */
+
+span.option {
+  display:block;
+}
+
+.plone-modal-dialog {
+  /* small fix: modal dialog for upload/related (via tinymce) requires more space than shipped OOTB in plone.app.widgets */
+  width: 760px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  left: 0 !important;
+}
+
+body.mce-content-body {
+  overflow-y:scroll !important;
+}
+
+/* hide broken tree link on related items widget */
+a.pattern-relateditems-tree-select {
+  display: none;
+}
+
+/* slightly more compact padding on TinyMCE 4 (mockup) buttons */
+.mce-tinymce .mce-toolbar .mce-btn button {
+  padding: 4px;
 }
