@@ -46,17 +46,15 @@ USER_IGNORE = (
     'sdupton',
     'snaeole',
     'homa.rehmani',
-    # OPIP:
-    'ross8305',
-    'davidrossmph',
-    'ktconner3',
     # CNHNQI:
     'tamaranjohn',
     # MAINE:
     'mainetesting@teamspace.mainequalitycounts.org',
     # TNAAP:
     'becky810',
-    'darcy.knowles'
+    'darcy.knowles',
+    # St Lukes:
+    'bradleyscottmckinney'
     )
 
 
@@ -65,8 +63,9 @@ _ignore_user = lambda u: any(map(lambda substr: substr in u, USER_IGNORE))
 ignore_user = lambda u: upiq_user(u) or _ignore_user(u.lower())
 
 
-#DIRNAME = 'usage_data_folder'
-DIRNAME = '/var/www/usage'
+# DIRNAME = 'usage_data_folder'
+# DIRNAME = '/var/www/usage'
+DIRNAME = '/home/app/usage'
 
 
 MONTHS = {
@@ -100,13 +99,13 @@ class IProjectSnapshot(Interface):
 
 
 class ProjectSnapshot(object):
-    
+
     implements(IProjectSnapshot)
-    
+
     NAMES = schema.getFieldNamesInOrder(IProjectSnapshot)
-    
+
     def __init__(self, **kwargs):
-        
+
         # initially empty sets for users, can be intersected later
         self.all_users = set()
         self.other_users = set()
@@ -116,7 +115,7 @@ class ProjectSnapshot(object):
             if k in self.NAMES:
                 IProjectSnapshot[k].validate(v)
                 setattr(self, k, v)
-    
+
     def __setattr__(self, name, value):
         """Validating setattr for any schema fields"""
         if name in self.NAMES:
@@ -196,7 +195,7 @@ def report_main(site, datestamp, perproject=False):
     """
     Given site and datestamp for snapshot, append report result to
     file named project_users.csv with column format:
-    
+
     month, date, project_name, #users, #managers, #teams, #forms.
     """
     if DETAIL_DEBUG:
@@ -267,7 +266,7 @@ def report_main(site, datestamp, perproject=False):
         sitesnap.team_count += snapshot.team_count
         if DETAIL_DEBUG:
             print '== PROJECT: %s ==' % project.getId()
-            print '  Team workspace count: %s' % snapshot.team_count 
+            print '  Team workspace count: %s' % snapshot.team_count
             print '  Total users (all categories): %s' % len(snapshot.all_users)
             print '   Managers of project: %s' % len(snapshot.managers)
             for email in snapshot.managers:
@@ -278,7 +277,7 @@ def report_main(site, datestamp, perproject=False):
             print '   Other users (not managers, not form entry): %s' % len(snapshot.other_users)
             for email in snapshot.other_users:
                 print '\t   - %s' % email
-        
+
         if perproject:
             proj_filename = os.path.join(DIRNAME, '%s-%s.csv' % (
                 site.getId(),
@@ -311,7 +310,7 @@ def report_main(site, datestamp, perproject=False):
     # if not in all_users group:
     sitesnap.form_users = sitesnap.form_users.intersection(sitesnap.all_users)
     sitesnap.managers = sitesnap.managers.intersection(sitesnap.all_users)
-    
+
     if DETAIL_DEBUG:
         print '== SITE: %s ==' % site.getId()
         print '  Total UNIQUE users (all categories): %s' % len(sitesnap.all_users)
