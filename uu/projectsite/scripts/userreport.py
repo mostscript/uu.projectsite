@@ -54,7 +54,9 @@ USER_IGNORE = (
     'becky810',
     'darcy.knowles',
     # St Lukes:
-    'bradleyscottmckinney'
+    'bradleyscottmckinney',
+    # Mostscript
+    '@mostscript.com'
     )
 
 
